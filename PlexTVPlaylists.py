@@ -11,6 +11,6 @@ Episodes = []
 PlayList = []
 fileoftvshows = open("Shows.txt", "r")
 
-movies = plex.library.section('Movies')
-for video in movies.search(unwatched=True):
+TV Shows = plex.library.section('TV Shows')
+for video in TV Shows.search(unwatched=True):
     print(video.title)
