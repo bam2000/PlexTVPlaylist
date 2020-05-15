@@ -12,7 +12,7 @@ PlayList = []
 fileoftvshows = open("Shows.txt", "r")
 
 for show in fileoftvshows:
-    found = plex.search(show, mediatype="show")
+    found = plex.search(show,unwatched=True, mediatype="show")
     TVShows.append(found[0])
 
 
