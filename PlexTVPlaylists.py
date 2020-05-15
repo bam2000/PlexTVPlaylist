@@ -11,23 +11,6 @@ Episodes = []
 PlayList = []
 fileoftvshows = open("Shows.txt", "r")
 
-for show in fileoftvshows:
-    found = plex.search(show,unwatched=True, mediatype="show")
-    TVShows.append(found[0])
-
-
-for i in range(len(TVShows)):
-    reversedepisodes = TVShows[i].episodes()
-    reversedepisodes.reverse()
-    Episodes.append(reversedepisodes)
-
-
-while len(Episodes) != 0:
-    show = random.randint(0, len(Episodes)-1)
-    PlayList.append(Episodes[show].pop())
-    if len(Episodes[show]) == 0:
-        del Episodes[show]
-
-nameofplaylist = input("Type name of playlist:")
-
-plex.createPlaylist(nameofplaylist, items=PlayList)
+movies = plex.library.section('Movies')
+for video in movies.search(unwatched=True):
+    print(video.title)
